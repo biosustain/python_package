@@ -1,5 +1,7 @@
 # Example Python package
 
+All design principles are explained in the [developing.md](developing.md) file.
+
 ## How to use
 
 Can be used as GitHub template repository,
