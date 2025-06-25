@@ -29,13 +29,13 @@ release = PACKAGE_VERSION
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    "sphinx.ext.autodoc",
-    "sphinx.ext.autodoc.typehints",
-    "sphinx.ext.viewcode",
-    "sphinx.ext.napoleon",
-    "sphinx.ext.intersphinx",
-    "sphinx_new_tab_link",
-    "myst_nb",
+    "sphinx.ext.autodoc",  # Core extension for generating documentation from docstrings
+    "sphinx.ext.autodoc.typehints",  # Automatically document type hints in function signatures
+    "sphinx.ext.viewcode",  # Include links to the source code in the documentation
+    "sphinx.ext.napoleon",  # Support for Google and NumPy style docstrings
+    "sphinx.ext.intersphinx",  # allows linking to other projects' documentation in API
+    "sphinx_new_tab_link",  # each link opens in a new tab
+    "myst_nb",  # Markdown and Jupyter Notebook support
 ]
 
 #  https://myst-nb.readthedocs.io/en/latest/computation/execute.html
@@ -43,7 +43,7 @@ nb_execution_mode = "auto"
 
 myst_enable_extensions = ["dollarmath", "amsmath"]
 
-# Plolty support through require javascript library
+# Plotly support through require javascript library
 # https://myst-nb.readthedocs.io/en/latest/render/interactive.html#plotly
 html_js_files = [
     "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"
