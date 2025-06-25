@@ -159,6 +159,7 @@ extensions = [
     "sphinx.ext.intersphinx",  # allows linking to other projects' documentation in API
     "sphinx_new_tab_link",  # each link opens in a new tab
     "myst_nb",  # Markdown and Jupyter Notebook support
+    "sphinx_copybutton",  # add copy button to code blocks
 ]
 ```
 
