@@ -45,7 +45,10 @@ dev = ["black", "ruff", "pytest"]
 
 # Configure the Ruff linter: Ignore error number 501
 [tool.ruff]
-lint.ignore = ["E501"]
+# https://docs.astral.sh/ruff/rules/#flake8-bandit-s
+lint.ignore = ["E501"] # Ignore line length errors
+# Allow lines to be as long as:
+line-length = 90
 
 [build-system]
 build-backend = "setuptools.build_meta"
