@@ -8,6 +8,7 @@ see [GitHub documentation](https://docs.github.com/en/repositories/creating-and-
 You will need to find and replace occurences of
 
 - `python_package` -> `your_package_name`
+    - also the folder `src/python_package` 
 - `RasmussenLab` -> `GitHub_user_name` (or `organization`)
 
 with the name of your package and GitHub user name (or organization).
