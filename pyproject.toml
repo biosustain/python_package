@@ -41,7 +41,7 @@ docs = [
   "jupytext",
 ]
 # local development options
-dev = ["black", "ruff", "pytest"]
+dev = ["black[jupyter]", "ruff", "pytest"]
 
 # Configure the Ruff linter: Ignore error number 501
 [tool.ruff]
