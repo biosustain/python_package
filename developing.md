@@ -13,8 +13,8 @@ which needs some explanation.
 
 ## Project structure
 
-First an overview of the main folder structure. See line comments for details on what
-folder or file purpose.
+First an overview of the main folder structure. See line comments for details on what 
+is the purpose of each folder or file:
 
 ```bash
 python_package
@@ -32,23 +32,30 @@ python_package
 
 ## Core packaging files
 
-We will first look at `pyproject.toml` and it's relation to the `src` directory.
+We will first look at [`pyproject.toml`] and it's relation to the [`src`](src) directory. The 
+[`project.toml`](pyproject.toml) file is the main configuration file for the Python package
+and is used to specify the package metadata, dependencies, build tools and configurations.
+The [`src`](src) folder stores the actual source code of the package, where the package itself is
+the subdirectories of the [`src`](src) directory. The  (e.g. `src/python_package`).
 
 <details>
 <summary>About <code>setup.py</code> and <code>setup.cfg</code> configuration files</summary>
 
-The `setup.py` file is an artefact for backward compatibility and should not be changed. 
-Everything that used to be in `setup.py` or `setup.cfg` is now largely in `pyproject.toml`.
+The [`setup.py`](setup.py) file is an artefact for backward compatibility and should not 
+be changed.  Everything that used to be in [`setup.py`](setup.py) or 
+[`setup.cfg`](setup.cfg) is now largely in [`pyproject.toml`](pyproject.toml).
 The notable exception is specifying the desired maximum line length in `setup.cfg` via 
-the `flake8` section, which is not yet supported in `pyproject.toml`. We specify the line
-length for ruff in `pyproject.toml` and for flake8 in `setup.cfg`.
+the [`flake8`](https://flake8.pycqa.org/) section, which is not yet supported in 
+[`pyproject.toml`](pyproject.toml). 
+We specify the line length for ruff in [`pyproject.toml`](pyproject.toml). and 
+for flake8 in [`setup.cfg`](setup.cfg).
 
 </details>
 
 ### Changes required in `pyproject.toml`
 
 You have to change entries under the `[project]` section to match your project name,
-description, author, license, etc. The `dependencies` section can list the dependencies
+description, author, license, etc. The `dependencies` key can list the dependencies
 and is currently commented out. The dependencies could also be specified in via a
 `requirements.txt`, if you already have such a file.
 
@@ -88,13 +95,13 @@ dynamic = ["version"]
 
 means that the version is loaded dynamically using the extension 
 [setuptools_scm](https://setuptools-scm.readthedocs.io/)
-we list under the `[build-system]` section in `pyproject.toml`. 
+we list under the `[build-system]` section in [`pyproject.toml`](pyproject.toml). 
 This is done to avoid having to manually update the version and integrate with automatic 
 versioning through releases on GitHub. It also
 ensures that each commit has a unique version number, which is useful for attributing
 errors to specific non-released versions. The dynamic version is picked up in the 
 `__version__` variable in the `__init__.py` file of the package, which is located in the
-`src/python_package` directory.
+[`src/python_package`](src/python_package) directory.
 
 ```toml
 [build-system]
@@ -136,8 +143,9 @@ name = "my_package"
 ```
 
 Strictly speaking you can give different names in both places, but this will only confuse
-potential users. Think of `scikit-learn` for an example of a package that has a different
-name in the [`pyproject.toml`](pyproject.toml) file and the source code directory name.
+potential users. Think of `scikit-learn` for an example of a package that uses a different
+name in the [`pyproject.toml`](pyproject.toml) file and the source code directory name, 
+leading to the `sklearn` package name when imported.
 
 ## Documentation
 
@@ -146,7 +154,7 @@ which is common for Python documentation. It relies additionally on several exte
 enabling the use of `markdown` and `jupyter` notebooks. 
 
 The documentation is located in the [`docs`](docs) directory. Sphinx is configured via
-the [`conf.py`](docs/conf.py) file, where you can specify the extension you want.
+the [`conf.py`](docs/conf.py) file, where you can specify the extension you want:
 
 ```python
 # in docs/conf.py
@@ -180,6 +188,8 @@ docs = [
 ]
 ```
 
+### Required changes in `conf.py`
+
 The required changes in [`conf.py`](docs/conf.py) are at the following places:
 
 ```python
@@ -212,6 +222,8 @@ if os.environ.get("READTHEDOCS") == "True":
 The last block is for Read The Docs to be able to generate the API documentation of your
 package on the fly. See the Read The Docs section below for more details.
 
+### Theme, autodoc and intersphinx
+
 We build the documentation based on the template
 [sphinx_book_theme](https://sphinx-book-theme.readthedocs.io), which is set in the
 [`conf.py`](docs/conf.py) file and parts of our docs requirements in 
@@ -226,8 +238,10 @@ html_theme = "sphinx_book_theme"
 > [sphinx-themes.org](https://sphinx-themes.org/)
 
 The API of the Python package in the `src` directory is automatically included 
-in the documentation using the `autodoc` extension. The API documentation can be 
-augumented with hightlights from other types from projects using `intersphinx`:
+in the documentation using the
+[`autodoc` extension](https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html).
+The API documentation can be augmented with highlights from other types from projects 
+using `intersphinx`:
 
 ```python
 # Intersphinx options
@@ -242,9 +256,11 @@ intersphinx_mapping = {
 Here we only add the core Python documentation, but you can add more projects
 like `pandas`, `scikit-learn`, or `matplotlib` to the mapping.
 
+### Building the documentation locally (with integration tests)
+
 To build the documentation locally, you can follow the instructions in the
 [`docs/README.md`](docs/README.md), which you should also update with your name changes. 
-In short, you can run the following commands in the `docs` directory:
+In short, you can run the following commands in the [`docs`](docs ) directory:
 
 ```bash
 # in root of the project
@@ -255,8 +271,8 @@ sphinx-build -n -W --keep-going -b html ./ ./_build/
 ```
 
 this will create a `reference` directory with the API documentation of the Python package
-`python_package`, a `jupyter_execute` for the tutorial in `docs/tutorial` and a
-`_build` directory with an HTML version of the documentation. You can open the
+`python_package`, a `jupyter_execute` for the tutorial in [`docs/tutorial`](docs/tutorial)
+ and a `_build` directory with an HTML version of the documentation. You can open the
 `_build/index.html` file in your browser to view the documentation built locally.
 
 The tutorial related configuration in `conf.py` is the following, specifying that 
@@ -297,9 +313,9 @@ format to `py:percent` and automatically allows syncing of new notebooks.
 ### Read The Docs
 
 To build the documentation on Read The Docs, you need to create a file called
-`.readthedocs.yaml`, which is located in the root of the project and specifies which 
-dependencies are needed. The core is the following specifying where the `conf.py` file 
-is and from where to install the required dependencies:
+[`.readthedocs.yaml`](.readthedocs.yaml), which is located in the root of the project and 
+specifies which dependencies are needed. The core is the following specifying where the 
+[`conf.py`](docs/conf.py) file is and from where to install the required dependencies:
 
 ```yaml
 # Build documentation in the "docs/" directory with Sphinx
@@ -317,8 +333,9 @@ python:
 You will need to manually register your project repository on 
 [Read The Docs](https://readthedocs.org/) in order that it can build the documentation
 by the service. I recommend to activate builds for Pull Requests, so that 
-the documentation is built for each PR and you can see if the documentation gradually 
-breaking and your work advancing. See their documentation
+the documentation is built for each PR and you can see if the documentation is gradually 
+breaking, i.e. your integration test using the notebooks in
+[`docs/tutorial`](docs/tutorial) fail. See their documentation
 [on adding a project](https://docs.readthedocs.com/platform/stable/intro/add-project.html) 
 for instructions.
 
@@ -335,7 +352,7 @@ linter `ruff`:
 dev = ["black[jupyter]", "ruff", "pytest"]
 ```
 
-Instead of running these tools manually, typing:
+Instead of running these tools manually, typing
 
 ```bash
 black .
@@ -343,7 +360,7 @@ ruff check .
 pytest tests
 ```
 
-Read the next section to see how this is automated using `GitHub Actions`.
+read the next section to see how this is automated using `GitHub Actions`.
 
 ## GitHub Actions
 
@@ -414,7 +431,7 @@ jobs:
         run: python -m pytest tests
 ```
 
-This files also allows to create `PyPI` releases automatically if you register your 
+This workflow also allows to create `PyPI` releases automatically if you register your 
 project on `PyPI` (or `TestPyPI` for testing first) and create a GitHub release:
 
 ```yaml
@@ -441,9 +458,10 @@ project on `PyPI` (or `TestPyPI` for testing first) and create a GitHub release:
           repository-url: https://test.pypi.org/legacy/
 ```
 
-To setup the `gh-action-pypi-publish` action, you need to register the repository
-on `PyPI` or `TestPyPI`, which allows PyPI and GitHub to communicate securely.
-See the instructions on 
+To setup the [`gh-action-pypi-publish`](https://github.com/pypa/gh-action-pypi-publish)
+action, you need to register the repository
+on [PyPI](https://pypi.org/) or [`TestPyPI`](https://test.pypi.org/), which allows PyPI 
+and GitHub to communicate securely. See the instructions on
 [packaging.python.org](https://packaging.python.org/en/latest/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/).
 
 > The wheels are not built by default, but you can be necessary for packages which need
@@ -468,13 +486,11 @@ python_package
 ├── tests
 │   ├── __init__.py
 │   └── test_mockup.py # files and test_function need to start with test_ to be recognized by pytest
-├── LICENSE
-├── MANIFEST.in
-├── pyproject.toml
-├── pytest.ini
-├── README.md
-├── setup.cfg # only used to set flake8 line length
-└── setup.py
+├── LICENSE # License file specifying usage terms
+├── MANIFEST.in # non-python files to include into the build package
+├── pyproject.toml # python package metadata, dependencies and configurations (incl. build tools)
+├── pytest.ini # pytest configuration
+├── README.md # README which is rendered on GitHub (or other hosting services)
+└── setup.cfg # old python configuration file, only used to set flake8 line length
+└── setup.py # artefact for backward compatibility, do not change
 ```
-
-
