@@ -1,8 +1,7 @@
 # ref: https://setuptools.pypa.io/en/stable/userguide/pyproject_config.html
 [project]
 authors = [
-  { name = "Jakob Nybo Nissen", email = "jakobnybonissen@gmail.com" },
-  { name = "Henry Webel", email = "henry.webel@sund.ku.dk" },
+  { name = "First Last", email = "first.last@gmail.com" },
 ]
 description = "A small example package"
 name = "python_package"

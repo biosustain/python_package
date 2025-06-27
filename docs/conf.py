@@ -16,8 +16,8 @@ from importlib import metadata
 # -- Project information -----------------------------------------------------
 
 project = "python_package"
-copyright = "2025, Jakob Nybo Nissen, Henry Webel"
-author = "Jakob Nybo Nissen, Henry Webel"
+copyright = "2025, First Last"
+author = "First Last"
 PACKAGE_VERSION = metadata.version("python_package")
 version = PACKAGE_VERSION
 release = PACKAGE_VERSION

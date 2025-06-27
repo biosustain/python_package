@@ -63,8 +63,7 @@ and is currently commented out. The dependencies could also be specified in via 
 # ref: https://setuptools.pypa.io/en/stable/userguide/pyproject_config.html
 [project]
 authors = [
-  { name = "Jakob Nybo Nissen", email = "jakobnybonissen@gmail.com" }, 
-  { name = "Henry Webel", email = "henry.webel@sund.ku.dk" },
+  { name = "First Last", email = "first.last@gmail.com" },
 ]
 description = "A small example package"
 name = "python_package"
@@ -196,8 +195,8 @@ The required changes in [`conf.py`](docs/conf.py) are at the following places:
 # in docs/conf.py
 
 project = "python_package"
-copyright = "2025, Jakob Nybo Nissen, Henry Webel"
-author = "Jakob Nybo Nissen, Henry Webel"
+copyright = "2025, First Last"
+author = "First Last"
 PACKAGE_VERSION = metadata.version("python_package")
 
 # ...
