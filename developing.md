@@ -34,7 +34,7 @@ python_package
 
 We will first look at [`pyproject.toml`](pyproject.toml) and its relation to the 
 [`src`](src) directory. The 
-[`project.toml`](pyproject.toml) file is the main configuration file for the Python package
+[`pyproject.toml`](pyproject.toml) file is the main configuration file for the Python package
 and is used to specify the package metadata, dependencies, build tools and configurations.
 The [`src`](src) folder stores the actual source code of the package, where the package itself is
 the subdirectories of the [`src`](src) directory. The  (e.g. `src/python_package`).
