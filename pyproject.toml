@@ -46,9 +46,17 @@ dev = ["black[jupyter]", "ruff", "pytest"]
 # Configure the Ruff linter: Ignore error number 501
 [tool.ruff]
 # https://docs.astral.sh/ruff/rules/#flake8-bandit-s
-lint.ignore = ["E501"] # Ignore line length errors
-# Allow lines to be as long as:
-line-length = 90
+# lint.ignore = ["E501"] # Ignore line length errors
+# Allow lines to be as long as (default is 88 in black)
+# This is the same as the default in black, but we set it explicitly here.
+line-length = 88
+
+[tool.ruff.lint]
+# https://docs.astral.sh/ruff/tutorial/#rule-selection
+# 1. Enable flake8-bugbear (`B`) rules
+# 2. Enable pycodestyle (`E`) errors and (`W`) warnings
+# 3. Pyflakes (`F`) errors
+extend-select = ["E", "W", 'F', 'B']
 
 [build-system]
 build-backend = "setuptools.build_meta"
@@ -60,3 +68,6 @@ requires = ["setuptools>=64", "setuptools_scm>=8"]
 
 [tool.isort]
 profile = "black"
+
+[tool.black]
+line-length = 88
