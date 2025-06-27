@@ -30,6 +30,7 @@ reference/python_package
 :hidden: true
 
 README
+developing
 ```
 
 ## Indices and tables

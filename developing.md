@@ -1,4 +1,4 @@
-# Python package template
+# Design descriptions and details for the Python package template
 
 > Author: Henry Webel
 
@@ -32,7 +32,8 @@ python_package
 
 ## Core packaging files
 
-We will first look at [`pyproject.toml`] and it's relation to the [`src`](src) directory. The 
+We will first look at [`pyproject.toml`](pyproject.toml) and it's relation to the 
+[`src`](src) directory. The 
 [`project.toml`](pyproject.toml) file is the main configuration file for the Python package
 and is used to specify the package metadata, dependencies, build tools and configurations.
 The [`src`](src) folder stores the actual source code of the package, where the package itself is
