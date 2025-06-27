@@ -56,7 +56,7 @@ line-length = 88
 # 1. Enable flake8-bugbear (`B`) rules
 # 2. Enable pycodestyle (`E`) errors and (`W`) warnings
 # 3. Pyflakes (`F`) errors
-extend-select = ["E", "W", 'F', 'B']
+extend-select = ["E", "W", "F", "B"]
 
 [build-system]
 build-backend = "setuptools.build_meta"

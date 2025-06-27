@@ -32,7 +32,7 @@ python_package
 
 ## Core packaging files
 
-We will first look at [`pyproject.toml`](pyproject.toml) and it's relation to the 
+We will first look at [`pyproject.toml`](pyproject.toml) and its relation to the 
 [`src`](src) directory. The 
 [`project.toml`](pyproject.toml) file is the main configuration file for the Python package
 and is used to specify the package metadata, dependencies, build tools and configurations.
