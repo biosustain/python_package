@@ -7,9 +7,11 @@ description = "A small example package"
 name = "python_package"
 # This means: Load the version from the package itself.
 # See the section below: [tools.setuptools.dynamic]
-dynamic = ["version"]
+dynamic = ["version",
+#"dependencies", # add if using requirements.txt
+]
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.9" # test all higher Python versions
 # These are keywords
 classifiers = [
   "Programming Language :: Python :: 3",
@@ -20,6 +22,7 @@ classifiers = [
 # dependencies = ["numpy", "pandas", "scipy", "matplotlib", "seaborn"]
 # use requirements.txt instead of pyproject.toml for dependencies
 # https://stackoverflow.com/a/73600610/9684872
+# ! uncomment also dependencies in the dynamic section above
 # [tool.setuptools.dynamic]
 # dependencies = {file = ["requirements.txt"]}
 
