@@ -464,8 +464,46 @@ on [PyPI](https://pypi.org/) or [`TestPyPI`](https://test.pypi.org/), which allo
 and GitHub to communicate securely. See the instructions on
 [packaging.python.org](https://packaging.python.org/en/latest/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/).
 
-> The wheels are not built by default, but you can be necessary for packages which need
-> to be partly compiled, e.g. if you use `Cython`, `numpy` C extensions or Rust extensions.
+You then trigger new releases to PyPI by creating a new GitHub release, which will
+automatically trigger the `publish` job in the workflow as it needs you to set a tag.
+Have a look at [VueGen Releases]( https://github.com/Multiomics-Analytics-Group/vuegen/releases)
+for an example. The release notes are automatically generated using the PR titles,
+see GitHub's
+[docs](https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes).
+
+<details>
+<summary>Wheels and testing builds</summary>
+The wheels are not built by default, but you can be necessary for packages which need
+to be partly compiled, e.g. if you use `Cython`, `numpy` C extensions or Rust extensions.
+
+Also additionally you could use the artifact from the `build_source_dist` job
+to test the build of the source distribution. This is useful to ensure that a package
+with non-Python files (e.g. data files) is built correctly and that the package
+can be installed correctly. You should probably best test this in as much isolation as 
+you can, e.g. by not pulling the repository using `actions/checkout@v4`.
+
+```yaml
+  test_sdist:
+    name: Install built source distribution
+    needs: build_source_dist
+    runs-on: ubuntu-latest
+    steps:
+      # - uses: actions/checkout@v4 
+      - uses: actions/download-artifact@v4
+        with:
+          name: artifact
+          path: ./dist
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install built sdist
+        run: |
+          pip install ./dist/*.tar.gz
+      # ... some checks
+```
+</details>
+
+
 
 ## Full project structure
 
