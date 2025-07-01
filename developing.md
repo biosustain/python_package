@@ -71,9 +71,13 @@ aggressive = 2
 ### Changes required in `pyproject.toml`
 
 You have to change entries under the `[project]` section to match your project name,
-description, author, license, etc. The `dependencies` key can list the dependencies
-and is currently commented out. The dependencies could also be specified in via a
-`requirements.txt`, if you already have such a file.
+description, author, license, etc. Make sure to pick a license that works for you, e.g. 
+using [choosealicense.com](https://choosealicense.com/). Also update the `LICENSE` file
+accordingly.
+
+The `dependencies` key can 
+list the dependencies and is currently commented out. The dependencies could also be 
+specified in via a `requirements.txt`, if you already have such a file.
 
 ```toml
 # ref: https://setuptools.pypa.io/en/stable/userguide/pyproject_config.html
@@ -85,15 +89,17 @@ description = "A small example package"
 name = "python_package"
 # This means: Load the version from the package itself.
 # See the section below: [tools.setuptools.dynamic]
-dynamic = ["version"] # version is loaded from the package
+dynamic = ["version", # version is loaded from the package
+#"dependencies", # add if using requirements.txt
+]
 readme = "README.md"
 requires-python = ">=3.9"
 # These are keywords
 classifiers = [
   "Programming Language :: Python :: 3",
-  "License :: OSI Approved :: MIT License",
   "Operating System :: OS Independent",
 ]
+license = "MIT" # https://choosealicense.com/
 # # add dependencies here: (use one of the two)
 # dependencies = ["numpy", "pandas", "scipy", "matplotlib", "seaborn"]
 # use requirements.txt instead of pyproject.toml for dependencies
