@@ -26,7 +26,7 @@ python_package
 ├── pyproject.toml # python package metadata, dependencies and configurations (incl. build tools)
 ├── pytest.ini # pytest configuration
 ├── README.md # README which is rendered on GitHub (or other hosting services)
-└── setup.cfg # old python configuration file, only used to set flake8 line length
+└── setup.cfg # old python configuration file, empty
 └── setup.py # artefact for backward compatibility, do not change
 ```
 
@@ -45,11 +45,18 @@ the subdirectories of the [`src`](src) directory. The  (e.g. `src/python_package
 The [`setup.py`](setup.py) file is an artefact for backward compatibility and should not 
 be changed.  Everything that used to be in [`setup.py`](setup.py) or 
 [`setup.cfg`](setup.cfg) is now largely in [`pyproject.toml`](pyproject.toml).
-The notable exception is specifying the desired maximum line length in `setup.cfg` via 
-the [`flake8`](https://flake8.pycqa.org/) section, which is not yet supported in 
-[`pyproject.toml`](pyproject.toml). 
-We specify the line length for ruff in [`pyproject.toml`](pyproject.toml). and 
-for flake8 in [`setup.cfg`](setup.cfg).
+The notable exception would be the desired maximum line length in `setup.cfg` for 
+the tool [`flake8`](https://flake8.pycqa.org/), which does not yet supported
+[`pyproject.toml`](pyproject.toml) configuration. As we use `ruff` as linter,
+we left it empty, but in case you want to use `flake8`, you can add:
+
+```INI
+; setup.cfg
+[flake8]
+exclude = docs
+max-line-length = 88
+aggressive = 2
+```
 
 </details>
 
@@ -529,6 +536,6 @@ python_package
 ├── pyproject.toml # python package metadata, dependencies and configurations (incl. build tools)
 ├── pytest.ini # pytest configuration
 ├── README.md # README which is rendered on GitHub (or other hosting services)
-└── setup.cfg # old python configuration file, only used to set flake8 line length
+└── setup.cfg # old python configuration file, empty
 └── setup.py # artefact for backward compatibility, do not change
 ```
