@@ -15,9 +15,9 @@ requires-python = ">=3.9" # test all higher Python versions
 # These are keywords
 classifiers = [
   "Programming Language :: Python :: 3",
-  "License :: OSI Approved :: MIT License",
   "Operating System :: OS Independent",
 ]
+license = "MIT" # https://choosealicense.com/
 # # add dependencies here: (use one of the two)
 # dependencies = ["numpy", "pandas", "scipy", "matplotlib", "seaborn"]
 # use requirements.txt instead of pyproject.toml for dependencies
