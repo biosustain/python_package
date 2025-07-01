@@ -145,8 +145,12 @@ Please also update the project URL to your project:
 ## Source directory layout of the package
 
 The source code of the package is located in the `src` directory, to have a project 
-independent folder to look for the source code. It also allows to have multiple packages
-in the same project, although this is not our main use case.
+independent folder to look for the source code recognized by most tools you would need
+to build a package 
+(read on [packagin namespace packages](https://packaging.python.org/en/latest/guides/packaging-namespace-packages/)). 
+It also allows to have multiple subpackages or modules 
+in the same project under the `python_package` package (see example 
+[here](https://setuptools.pypa.io/en/latest/userguide/package_discovery.html#src-layout)).
 
 ```bash
 ├── src
@@ -261,6 +265,8 @@ html_theme = "sphinx_book_theme"
 The API of the Python package in the `src` directory is automatically included 
 in the documentation using the
 [`autodoc` extension](https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html).
+We use per default the `numpydoc` style for docstrings, see the format
+[here](https://numpydoc.readthedocs.io/en/stable/format.html).
 The API documentation can be augmented with highlights from other types from projects 
 using `intersphinx`:
 
