@@ -7,9 +7,17 @@ has an excellent tutorial on how to package a Python project. I read and used in
 that website to help create the template which is available on GitHub at
 [https://github.com/RasmussenLab/python_package](https://github.com/RasmussenLab/python_package)
 and I want to give here an overview specifically to some details regarding this template.
-Some are overlapping with the [packaging.python.org](https://packaging.python.org/en/latest/tutorials/packaging-projects/)
+Some are overlapping with the 
+[packaging.python.org](https://packaging.python.org/en/latest/tutorials/packaging-projects/)
 tutorial, but as always we decided for a certain set of tools, conventions and complexity 
 which needs some explanation.
+
+Here a brief overview of external resources you can also look at:
+
+- [packaging.python.org](https://packaging.python.org/en/latest/tutorials/packaging-projects/)
+- [setuptools documentation](https://setuptools.pypa.io/en/latest/userguide/index.html)
+- [learn.scientific-python.org](https://learn.scientific-python.org/development/)
+- [Py-Pkgs](https://py-pkgs.org/)
 
 ## Project structure
 
