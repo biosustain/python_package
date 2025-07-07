@@ -1,14 +1,13 @@
 # ref: https://setuptools.pypa.io/en/stable/userguide/pyproject_config.html
 [project]
-authors = [
-  { name = "First Last", email = "first.last@gmail.com" },
-]
+authors = [{ name = "First Last", email = "first.last@gmail.com" }]
 description = "A small example package"
 name = "python_package"
 # This means: Load the version from the package itself.
 # See the section below: [tools.setuptools.dynamic]
-dynamic = ["version", # version is loaded from the package
-#"dependencies", # add if using requirements.txt
+dynamic = [
+  "version", # version is loaded from the package
+  #"dependencies", # add if using requirements.txt
 ]
 readme = "README.md"
 requires-python = ">=3.9" # test all higher Python versions
@@ -17,7 +16,8 @@ classifiers = [
   "Programming Language :: Python :: 3",
   "Operating System :: OS Independent",
 ]
-license = "MIT" # https://choosealicense.com/
+# Also update LICENSE file if you pick another one
+license = "GPL-3.0-or-later" # https://choosealicense.com/licenses/gpl-3.0/
 # # add dependencies here: (use one of the two)
 # dependencies = ["numpy", "pandas", "scipy", "matplotlib", "seaborn"]
 # use requirements.txt instead of pyproject.toml for dependencies
