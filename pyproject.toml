@@ -45,11 +45,8 @@ docs = [
 # local development options
 dev = ["black[jupyter]", "ruff", "pytest"]
 
-# Configure the Ruff linter: Ignore error number 501
 [tool.ruff]
 # https://docs.astral.sh/ruff/rules/#flake8-bandit-s
-# lint.ignore = ["E501"] # Ignore line length errors
-# Allow lines to be as long as (default is 88 in black)
 
 [tool.ruff.lint]
 # https://docs.astral.sh/ruff/tutorial/#rule-selection
@@ -57,6 +54,8 @@ dev = ["black[jupyter]", "ruff", "pytest"]
 # 2. Enable pycodestyle (`E`) errors and (`W`) warnings
 # 3. Pyflakes (`F`) errors
 extend-select = ["E", "W", "F", "B"]
+# Ignore line length errors:
+# ignore = ["E501"]
 
 [build-system]
 build-backend = "setuptools.build_meta"
