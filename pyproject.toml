@@ -1,14 +1,13 @@
 # ref: https://setuptools.pypa.io/en/stable/userguide/pyproject_config.html
 [project]
-authors = [
-  { name = "First Last", email = "first.last@gmail.com" },
-]
+authors = [{ name = "First Last", email = "first.last@gmail.com" }]
 description = "A small example package"
 name = "python_package"
 # This means: Load the version from the package itself.
 # See the section below: [tools.setuptools.dynamic]
-dynamic = ["version", # version is loaded from the package
-#"dependencies", # add if using requirements.txt
+dynamic = [
+  "version", # version is loaded from the package
+  #"dependencies", # add if using requirements.txt
 ]
 readme = "README.md"
 requires-python = ">=3.9" # test all higher Python versions
