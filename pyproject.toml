@@ -43,7 +43,7 @@ docs = [
   "sphinx-copybutton",
 ]
 # local development options
-dev = ["black[jupyter]", "ruff", "pytest"]
+dev = ["black[jupyter]", "ruff", "pytest", "isort", "jupytext"]
 
 [tool.ruff]
 # https://docs.astral.sh/ruff/rules/#flake8-bandit-s

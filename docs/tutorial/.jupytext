@@ -1,2 +1,6 @@
-# all notebooks in this directory are in the percent format
+# all notebooks in this directory are synced percent format when typing
+# (jupytext is a dev dependency)
+# jupytext --sync *.ipynb
+# or from root directory
+# jupytext --sync docs/api_examples/*.ipynb
 formats = "ipynb,py:percent"
