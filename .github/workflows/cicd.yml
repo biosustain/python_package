@@ -125,3 +125,6 @@ jobs:
         with:
           # remove repository key to set the default to pypi (not test.pypi.org)
           repository-url: https://test.pypi.org/legacy/
+          
+    permissions:
+      id-token: write
