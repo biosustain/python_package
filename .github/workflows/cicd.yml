@@ -106,6 +106,8 @@ jobs:
   publish:
     name: Publish package
     if: startsWith(github.ref, 'refs/tags')
+    permissions:
+      id-token: write
     needs:
       - format
       - lint
@@ -126,5 +128,3 @@ jobs:
           # remove repository key to set the default to pypi (not test.pypi.org)
           repository-url: https://test.pypi.org/legacy/
           
-    permissions:
-      id-token: write
