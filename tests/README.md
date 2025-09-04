@@ -67,7 +67,6 @@ pytest
 ---
 
 ### Doctests
-
 You can also include tests in your docstrings using `>>>` followed by the expected result e.g.
 
 ```python
@@ -83,6 +82,7 @@ def hello_world(n):
         ...
     """
 ```
+*Needs `addopts = --doctest-modules` in pytest.ini
 
 ---
 
