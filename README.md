@@ -11,14 +11,15 @@ see [GitHub documentation](https://docs.github.com/en/repositories/creating-and-
 You will need to find and replace occurences of
 
 - `python_package` -> `your_package_name`
-    - also the folder `src/python_package` 
+  - also the folder `src/python_package`
 - `RasmussenLab` -> `GitHub_user_name` (or `organization`)
-with the name of your package and GitHub user name (or organization).
+  with the name of your package and GitHub user name (or organization).
 
 - look for `First Last` to see where to replace with your name
 - choose a license, see [GitHub documentation](https://docs.github.com/en/repositories/creating-and-managing-repositories/licensing-a-repository)
   and [Creative Commons](https://creativecommons.org/chooser/).
   Replace [`LICENSE`](LICENSE) file with the license you choose.
+- Update the `CITATION.cff` file with your information.
 
 ## Development environment
 
@@ -41,7 +42,7 @@ print(hello_world(4))
 ## Readthedocs
 
 The documentation can be build using readthedocs automatically. See
-[project on Readthedocs](https://readthedocs.org/projects/rasmussenlab-python-package/) 
+[project on Readthedocs](https://readthedocs.org/projects/rasmussenlab-python-package/)
 for the project based on this template. A new project needs
 to [be registered on ReadTheDocs](https://docs.readthedocs.com/platform/stable/intro/add-project.html).
 

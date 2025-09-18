@@ -1,14 +1,13 @@
 # ref: https://setuptools.pypa.io/en/stable/userguide/pyproject_config.html
 [project]
-authors = [
-  { name = "First Last", email = "first.last@gmail.com" },
-]
+authors = [{ name = "First Last", email = "first.last@gmail.com" }]
 description = "A small example package"
 name = "python_package"
 # This means: Load the version from the package itself.
 # See the section below: [tools.setuptools.dynamic]
-dynamic = ["version", # version is loaded from the package
-#"dependencies", # add if using requirements.txt
+dynamic = [
+  "version", # version is loaded from the package
+  #"dependencies", # add if using requirements.txt
 ]
 readme = "README.md"
 requires-python = ">=3.9" # test all higher Python versions
@@ -44,13 +43,10 @@ docs = [
   "sphinx-copybutton",
 ]
 # local development options
-dev = ["black[jupyter]", "ruff", "pytest"]
+dev = ["black[jupyter]", "ruff", "pytest", "isort", "jupytext"]
 
-# Configure the Ruff linter: Ignore error number 501
 [tool.ruff]
 # https://docs.astral.sh/ruff/rules/#flake8-bandit-s
-# lint.ignore = ["E501"] # Ignore line length errors
-# Allow lines to be as long as (default is 88 in black)
 
 [tool.ruff.lint]
 # https://docs.astral.sh/ruff/tutorial/#rule-selection
@@ -58,6 +54,8 @@ dev = ["black[jupyter]", "ruff", "pytest"]
 # 2. Enable pycodestyle (`E`) errors and (`W`) warnings
 # 3. Pyflakes (`F`) errors
 extend-select = ["E", "W", "F", "B"]
+# Ignore line length errors:
+# ignore = ["E501"]
 
 [build-system]
 build-backend = "setuptools.build_meta"
