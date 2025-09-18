@@ -19,6 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: psf/black@stable
+      - uses: isort/isort-action@v1
   lint:
     name: Lint with ruff
     runs-on: ubuntu-latest
@@ -127,4 +128,3 @@ jobs:
         with:
           # remove repository key to set the default to pypi (not test.pypi.org)
           repository-url: https://test.pypi.org/legacy/
-          
