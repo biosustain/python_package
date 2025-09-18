@@ -16,7 +16,8 @@ classifiers = [
   "Programming Language :: Python :: 3",
   "Operating System :: OS Independent",
 ]
-license = "MIT" # https://choosealicense.com/
+# Also update LICENSE file if you pick another one
+license = "GPL-3.0-or-later" # https://choosealicense.com/licenses/gpl-3.0/
 # # add dependencies here: (use one of the two)
 # dependencies = ["numpy", "pandas", "scipy", "matplotlib", "seaborn"]
 # use requirements.txt instead of pyproject.toml for dependencies
