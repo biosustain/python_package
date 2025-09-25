@@ -68,3 +68,9 @@ requires = ["setuptools>=64", "setuptools_scm>=8"]
 
 [tool.isort]
 profile = "black"
+
+# Script entry points, i.e. command line commands available after installing the package
+# e.g. implemented using argparse
+# Then you can type: `python-package-hello -h` in the terminal
+[project.scripts]
+python-package-hello = "python_package.cli:main"
