@@ -16,7 +16,8 @@ classifiers = [
   "Programming Language :: Python :: 3",
   "Operating System :: OS Independent",
 ]
-license = "MIT" # https://choosealicense.com/
+# Also update LICENSE file if you pick another one
+license = "GPL-3.0-or-later" # https://choosealicense.com/licenses/gpl-3.0/
 # # add dependencies here: (use one of the two)
 # dependencies = ["numpy", "pandas", "scipy", "matplotlib", "seaborn"]
 # use requirements.txt instead of pyproject.toml for dependencies
@@ -67,3 +68,9 @@ requires = ["setuptools>=64", "setuptools_scm>=8"]
 
 [tool.isort]
 profile = "black"
+
+# Script entry points, i.e. command line commands available after installing the package
+# e.g. implemented using argparse
+# Then you can type: `python-package-hello -h` in the terminal
+[project.scripts]
+python-package-hello = "python_package.cli:main"

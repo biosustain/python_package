@@ -142,6 +142,28 @@ Please also update the project URL to your project:
 "Homepage" = "https://github.com/RasmussenLab/python_package"
 ```
 
+The template also sets a command line script entry point, which allows to run
+the function `main` in the `mockup` module of the package as a command line script,
+wrapping the `hello_world` function from the `mockup` module.
+The template uses the standard library [argparse](https://docs.python.org/3/library/argparse.html)
+module to parse parameters from the command line and creates a basic interface.
+
+```toml
+# Script entry points, i.e. command line commands available after installing the package
+# e.g. implemented using argparse
+# Then you can type: `python-package-hello -h` in the terminal
+[project.scripts]
+python-package-hello = "python_package.cli:main"
+```
+
+You can therefore run the command line script using:
+
+```bash
+python-package-hello -h
+# print hello world 3 times
+python-package-hello -n 3
+```
+
 ## Source directory layout of the package
 
 The source code of the package is located in the `src` directory, to have a project 

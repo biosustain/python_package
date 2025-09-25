@@ -49,6 +49,7 @@ myst_enable_extensions = ["dollarmath", "amsmath"]
 html_js_files = [
     "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"
 ]
+os.environ["PLOTLY_RENDERER"] = "notebook"  # compatibility with plotly6
 
 # https://myst-nb.readthedocs.io/en/latest/configuration.html
 # Execution

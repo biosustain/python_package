@@ -1,5 +1,6 @@
-from python_package import hello_world, saved_world
 import pytest
+
+from python_package import hello_world, saved_world
 
 
 def test_hello_world_3times():
