@@ -40,22 +40,22 @@ python_package
 
 ## Core packaging files
 
-We will first look at [`pyproject.toml`](pyproject.toml) and its relation to the 
-[`src`](src) directory. The 
-[`pyproject.toml`](pyproject.toml) file is the main configuration file for the Python package
+We will first look at [`pyproject.toml`](./pyproject.toml) and its relation to the 
+`src` directory. The 
+[`pyproject.toml`](./pyproject.toml) file is the main configuration file for the Python package
 and is used to specify the package metadata, dependencies, build tools and configurations.
-The [`src`](src) folder stores the actual source code of the package, where the package itself is
-the subdirectories of the [`src`](src) directory. The  (e.g. `src/python_package`).
+The `src` folder stores the actual source code of the package, where the package itself is
+the subdirectories of the `src` directory. The  (e.g. `src/python_package`).
 
 <details>
 <summary>About <code>setup.py</code> and <code>setup.cfg</code> configuration files</summary>
 
-The [`setup.py`](setup.py) file is an artefact for backward compatibility and should not 
-be changed.  Everything that used to be in [`setup.py`](setup.py) or 
-[`setup.cfg`](setup.cfg) is now largely in [`pyproject.toml`](pyproject.toml).
+The [`setup.py`](./setup.py) file is an artefact for backward compatibility and should not 
+be changed.  Everything that used to be in [`setup.py`](./setup.py) or 
+[`setup.cfg`](./setup.cfg) is now largely in [`pyproject.toml`](./pyproject.toml).
 The notable exception would be the desired maximum line length in `setup.cfg` for 
 the tool [`flake8`](https://flake8.pycqa.org/), which does not yet supported
-[`pyproject.toml`](pyproject.toml) configuration. As we use `ruff` as linter,
+[`pyproject.toml`](./pyproject.toml) configuration. As we use `ruff` as linter,
 we left it empty, but in case you want to use `flake8`, you can add:
 
 ```INI
@@ -116,13 +116,13 @@ dynamic = ["version"]
 
 means that the version is loaded dynamically using the extension 
 [setuptools_scm](https://setuptools-scm.readthedocs.io/)
-we list under the `[build-system]` section in [`pyproject.toml`](pyproject.toml). 
+we list under the `[build-system]` section in [`pyproject.toml`](./pyproject.toml). 
 This is done to avoid having to manually update the version and integrate with automatic 
 versioning through releases on GitHub. It also
 ensures that each commit has a unique version number, which is useful for attributing
 errors to specific non-released versions. The dynamic version is picked up in the 
 `__version__` variable in the `__init__.py` file of the package, which is located in the
-[`src/python_package`](src/python_package) directory.
+`src/python_package` directory.
 
 ```toml
 [build-system]
@@ -182,7 +182,7 @@ in the same project under the `python_package` package (see example
 ```
 
 So you will need to rename the `python_package` directory to your package name, 
-e.g. `my_package` and specify the package name in the [`pyproject.toml`](pyproject.toml) file 
+e.g. `my_package` and specify the package name in the [`pyproject.toml`](./pyproject.toml) file 
 under the `[project]` section:
 
 ```toml
@@ -191,7 +191,7 @@ name = "my_package"
 
 Strictly speaking you can give different names in both places, but this will only confuse
 potential users. Think of `scikit-learn` for an example of a package that uses a different
-name in the [`pyproject.toml`](pyproject.toml) file and the source code directory name, 
+name in the [`pyproject.toml`](./pyproject.toml) file and the source code directory name, 
 leading to the `sklearn` package name when imported.
 
 ## Documentation
@@ -200,8 +200,8 @@ The documentation is created using [Sphinx](https://www.sphinx-doc.org/en/master
 which is common for Python documentation. It relies additionally on several extensions
 enabling the use of `markdown` and `jupyter` notebooks. 
 
-The documentation is located in the [`docs`](docs) directory. Sphinx is configured via
-the [`conf.py`](docs/conf.py) file, where you can specify the extension you want:
+The documentation is located in the `docs` directory. Sphinx is configured via
+the [`conf.py`](./docs/conf.py) file, where you can specify the extension you want:
 
 ```python
 # in docs/conf.py
@@ -237,7 +237,7 @@ docs = [
 
 ### Required changes in `conf.py`
 
-The required changes in [`conf.py`](docs/conf.py) are at the following places:
+The required changes in [`conf.py`](./docs/conf.py) are at the following places:
 
 ```python
 # in docs/conf.py
@@ -273,8 +273,8 @@ package on the fly. See the Read The Docs section below for more details.
 
 We build the documentation based on the template
 [sphinx_book_theme](https://sphinx-book-theme.readthedocs.io), which is set in the
-[`conf.py`](docs/conf.py) file and parts of our docs requirements in 
-[`pyproject.toml`](pyproject.toml):
+[`conf.py`](./docs/conf.py) file and parts of our docs requirements in
+[`pyproject.toml`](./pyproject.toml):
 
 ```python
 html_theme = "sphinx_book_theme"
@@ -308,8 +308,8 @@ like `pandas`, `scikit-learn`, or `matplotlib` to the mapping.
 ### Building the documentation locally (with integration tests)
 
 To build the documentation locally, you can follow the instructions in the
-[`docs/README.md`](docs/README.md), which you should also update with your name changes. 
-In short, you can run the following commands in the [`docs`](docs ) directory:
+[`docs/README.md`](./docs/README.md), which you should also update with your name changes.
+In short, you can run the following commands in the `docs` directory:
 
 ```bash
 # in root of the project
@@ -320,7 +320,7 @@ sphinx-build -n -W --keep-going -b html ./ ./_build/
 ```
 
 this will create a `reference` directory with the API documentation of the Python package
-`python_package`, a `jupyter_execute` for the tutorial in [`docs/tutorial`](docs/tutorial)
+`python_package`, a `jupyter_execute` for the tutorial in `docs/tutorial`
  and a `_build` directory with an HTML version of the documentation. You can open the
 `_build/index.html` file in your browser to view the documentation built locally.
 
@@ -356,15 +356,15 @@ You have to keep the files in sync using:
 jupytext --sync docs/tutorial/*.ipynb
 ```
 
-The [`docs/tutorial/.jupytext`](docs/tutorial/.jupytext) configuration sets the default 
+The [`docs/tutorial/.jupytext`](./docs/tutorial/.jupytext) configuration sets the default 
 format to `py:percent` and automatically allows syncing of new notebooks.
 
 ### Read The Docs
 
 To build the documentation on Read The Docs, you need to create a file called
-[`.readthedocs.yaml`](.readthedocs.yaml), which is located in the root of the project and 
+[`.readthedocs.yaml`](./.readthedocs.yaml), which is located in the root of the project and 
 specifies which dependencies are needed. The core is the following specifying where the 
-[`conf.py`](docs/conf.py) file is and from where to install the required dependencies:
+[`conf.py`](./docs/conf.py) file is and from where to install the required dependencies:
 
 ```yaml
 # Build documentation in the "docs/" directory with Sphinx
@@ -384,7 +384,7 @@ You will need to manually register your project repository on
 by the service. I recommend to activate builds for Pull Requests, so that 
 the documentation is built for each PR and you can see if the documentation is gradually 
 breaking, i.e. your integration test using the notebooks in
-[`docs/tutorial`](docs/tutorial) fail. See their documentation
+`docs/tutorial` fail. See their documentation
 [on adding a project](https://docs.readthedocs.com/platform/stable/intro/add-project.html) 
 for instructions.
 
@@ -414,7 +414,7 @@ read the next section to see how this is automated using `GitHub Actions`.
 ## GitHub Actions
 
 We run these checks also on GitHub using GitHub Actions. The configuration
-for the actions is located in the [`.github/workflows`](.github/workflows) directory 
+for the actions is located in the `.github/workflows` directory
 and is specified in the `cdci.yml` file. See the biosustain dsp tutorial on GitHub Actions
 for more details (or any other resource you find):
 [biosustain/dsp_actions_tutorial](https://github.com/biosustain/dsp_actions_tutorial)
