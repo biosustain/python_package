@@ -5,10 +5,13 @@ name: Python application
 
 on:
   push:
+    branches: ["main"]
   pull_request:
     branches: ["main"]
   schedule:
     - cron: "0 2 * * 3"
+  release:
+    types: [published]
 
 permissions:
   contents: read
@@ -41,7 +44,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.11", "3.12"]
+        python-version: ["3.10", "3.11", "3.12", "3.13"]
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python ${{ matrix.python-version }}

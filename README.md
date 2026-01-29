@@ -20,6 +20,10 @@ You will need to find and replace occurences of
   and [Creative Commons](https://creativecommons.org/chooser/).
   Replace [`LICENSE`](LICENSE) file with the license you choose.
 - Update the `CITATION.cff` file with your information.
+- once you change the code under `src`, please make sure to update
+  - `docs/tutorial/tutorial.ipynb` (add your usage example)
+  - `tests/test_mockup.py` (delete file and add your own tests following the
+    naming conventions `test_<filename>.py`)
 
 ## Development environment
 
@@ -27,6 +31,19 @@ Install package so that new code is picked up in a restared python interpreter:
 
 ```
 pip install -e ".[dev]"
+```
+
+Then you want to run locally the commands which are check in the CI/CD pipeline 
+(using GitHub Actions). You can type
+
+```bash
+# run unittests
+pytest tests
+# format code and sort imports
+black .
+isort .
+# lint code and check for obvious errors
+ruff check src
 ```
 
 ## Basic usage
