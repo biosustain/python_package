@@ -20,6 +20,10 @@ You will need to find and replace occurences of
   and [Creative Commons](https://creativecommons.org/chooser/).
   Replace [`LICENSE`](LICENSE) file with the license you choose.
 - Update the `CITATION.cff` file with your information.
+- once you change the code under `src`, please make sure to update
+  - `docs/tutorial/tutorial.ipynb` (add your usage example)
+  - `tests/test_mockup.py` (delete file and add your own tests following the
+    naming conventions `test_<filename>.py`)
 
 ## Development environment
 
