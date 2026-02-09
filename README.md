@@ -33,7 +33,9 @@ Install package so that new code is picked up in a restared python interpreter:
 pip install -e ".[dev]"
 ```
 
-Then you want to run locally the commands which are check in the CI/CD pipeline 
+### CICD pipeline using GitHub Actions
+
+Then you want to run locally the commands which are check in the CI/CD pipeline
 (using GitHub Actions). You can type
 
 ```bash
@@ -45,6 +47,12 @@ isort .
 # lint code and check for obvious errors
 ruff check src
 ```
+
+If you want to release the package to PyPI, remove the link to test-pypi in the
+[`.github/workflows/release.yml`](.github/workflows/release.yml) file. If all actions
+pass, the package will be released to PyPI automatically once you create a new release on GitHub.
+Make sure to configure the project on PyPI first, see
+[here](https://packaging.python.org/en/latest/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/)
 
 ## Basic usage
 
