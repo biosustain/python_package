@@ -10,7 +10,7 @@ dynamic = [
   #"dependencies", # add if using requirements.txt
 ]
 readme = "README.md"
-requires-python = ">=3.9" # test all higher Python versions
+requires-python = ">=3.10" # test all higher Python versions
 # These are keywords
 classifiers = [
   "Programming Language :: Python :: 3",
