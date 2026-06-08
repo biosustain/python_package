@@ -3,6 +3,8 @@
 #
 # Run when documentation is build. Building documentation therefore can become
 # an minimal integration test for the package.
+#
+# <button class="thebe-button" onclick="initThebeSBT()">Activate Notebook</button>
 
 # %%
 from python_package import hello_world

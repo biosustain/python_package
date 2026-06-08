@@ -42,6 +42,7 @@ docs = [
   "sphinx-new-tab-link!=0.2.2",
   "jupytext",
   "sphinx-copybutton",
+  "sphinx-thebe"
 ]
 # local development options
 dev = ["black[jupyter]", "ruff", "pytest", "isort", "jupytext"]
