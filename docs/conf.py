@@ -37,6 +37,7 @@ extensions = [
     "sphinx_new_tab_link",  # each link opens in a new tab
     "myst_nb",  # Markdown and Jupyter Notebook support
     "sphinx_copybutton",  # add copy button to code blocks
+    "sphinx_thebe",  # make code blocks executable in the browser using Thebe
 ]
 
 #  https://myst-nb.readthedocs.io/en/latest/computation/execute.html
@@ -86,6 +87,10 @@ intersphinx_mapping = {
     # "matplotlib": ("https://matplotlib.org/stable/", None),
 }
 
+# thebe options
+# https://sphinx-thebe.readthedocs.io
+thebe_config = {"selector": "div.highlight"}  # makes ALL code cells runnable
+
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
@@ -97,8 +102,8 @@ html_theme = "sphinx_book_theme"
 # html_logo = "_static/logo-wide.svg"
 # html_favicon = "_static/logo-square.svg"
 html_theme_options = {
-    "github_url": "https://github.com/RasmussenLab/python_package",
-    "repository_url": "https://github.com/RasmussenLab/python_package",
+    "github_url": "https://github.com/biosustain/python_package",
+    "repository_url": "https://github.com/biosustain/python_package",
     "repository_branch": "main",
     "home_page_in_toc": True,
     "path_to_docs": "docs",
@@ -107,9 +112,10 @@ html_theme_options = {
     "use_repository_button": True,
     "use_download_button": True,
     "launch_buttons": {
-        "colab_url": "https://colab.research.google.com"
-        #     "binderhub_url": "https://mybinder.org",
-        #     "notebook_interface": "jupyterlab",
+        "colab_url": "https://colab.research.google.com",
+        "binderhub_url": "https://mybinder.org",
+        "notebook_interface": "jupyterlab",
+        "thebe": True,
     },
     "navigation_with_keys": False,
 }
