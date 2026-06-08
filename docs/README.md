@@ -82,6 +82,7 @@ sphinx-build -n -W --keep-going -b html ./ ./_build/
 
 #### Extra Requirements
 - installation of [`sphinx-thebe`](https://sphinx-thebe.readthedocs.io/en/latest/) e.g. add sphinx-thebe to docs group of [pyproject.toml](../pyproject.toml)
+- also add to `extensions` in sphinx conf.py
 
 #### Setup
 - configure thebe in html_theme_options in [conf.py](conf.py)
