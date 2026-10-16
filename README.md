@@ -40,7 +40,7 @@ Then you want to run locally the commands which are check in the CI/CD pipeline
 # run unittests
 pytest tests
 # format code and sort imports
-black .
+ruff format .
 isort .
 # lint code and check for obvious errors
 ruff check src
@@ -52,7 +52,8 @@ ruff check src
 
 ```python
 from python_package import hello_world
-print (python_package.__version__)
+
+print(python_package.__version__)
 print(hello_world(4))
 ```
 
