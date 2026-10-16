@@ -392,19 +392,20 @@ for instructions.
 
 The tests are located in the `tests` directory and can be run using `pytest`.
 Pytest is specified as a dependency in the `pyproject.toml` file under the
-`[project.optional-dependencies]` section along with the formatter `black` and the
+`[project.optional-dependencies]` section along with the formatter and
 linter `ruff`:
 
 ```toml
 [project.optional-dependencies]
 # local development options
-dev = ["black[jupyter]", "ruff", "pytest"]
+dev = ["ruff", "pytest"]
 ```
 
 Instead of running these tools manually, typing
 
 ```bash
-black .
+ruff format .
+isort .
 ruff check .
 pytest tests
 ```
@@ -443,7 +444,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: psf/black@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install ruff
+        run: pip install ruff
+      - name: Check formatting with ruff
+        run: ruff format --check .
   lint:
     name: Lint with ruff
     runs-on: ubuntu-latest
@@ -459,7 +466,7 @@ jobs:
       - name: Lint with ruff
         run: |
           # stop the build if there are Python syntax errors or undefined names
-          ruff check .
+          ruff check --output-format=github .
   test:
     name: Test
     runs-on: ubuntu-latest

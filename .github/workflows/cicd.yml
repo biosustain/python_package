@@ -21,7 +21,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: psf/black@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install ruff
+        run: pip install ruff
+      - name: Check formatting with ruff
+        run: ruff format --check .
       - uses: isort/isort-action@v1
   lint:
     name: Lint with ruff
@@ -38,7 +44,7 @@ jobs:
       - name: Lint with ruff
         run: |
           # stop the build if there are Python syntax errors or undefined names
-          ruff check src
+          ruff check --output-format=github src
   test:
     name: Test
     runs-on: ubuntu-latest

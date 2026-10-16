@@ -9,7 +9,7 @@ pip install -e '.[dev]'
 ## Format code and sort imports
 
 ```bash
-black .
+ruff format .
 isort .
 ```
 

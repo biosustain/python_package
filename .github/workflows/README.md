@@ -4,7 +4,7 @@
 
 Basic continuous integration and deployment (CI/CD) workflow for Python packages.
 
-- checks formatting (black, isort)
+- checks formatting (ruff, isort)
 - checks linting (ruff)
 - run unit tests (pytest)
 - optional: add c extensions to a package
